@@ -1,0 +1,12 @@
+docs_list_title: SC TOC
+toc:
+  - title: Products
+    subfolderitems:
+      - page: Bench
+        url: /docs/bench.html
+      - page: Integrator
+        url: /docs/integrator.html
+  - title: Tutorials
+    subfolderitems:
+      - page: Create a Bench
+        url: /docs/tutorial/create-bench.html
