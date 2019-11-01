@@ -8,5 +8,5 @@ toc:
         url: /docs/integrator.html
   - title: Tutorials
     subfolderitems:
-      - page: Create a Bench
+      - page: Create a Test Bench
         url: /docs/tutorial/create-bench.html
