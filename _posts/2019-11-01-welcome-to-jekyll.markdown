@@ -1,6 +1,6 @@
 ---
 title:  "Welcome to Jekyll!"
-permalink: /docs/welcome.html
+permalink: /gitlab-pages/docs/welcome.html
 ---
 <h1>{{ page.title }} </h1><br>
 

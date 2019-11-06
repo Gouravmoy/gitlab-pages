@@ -2,6 +2,10 @@ docs_list_title: SC TOC
 toc:
   - title: Products
     subfolderitems:
+      - page: Bench Index
+        url: /gitlab-pages/docs/bench-index.html
+      - page: My Dashboard
+        url: /gitlab-pages/docs/my-dashboard.html
       - page: Bench
         url: /gitlab-pages/docs/bench.html
       - page: Integrator

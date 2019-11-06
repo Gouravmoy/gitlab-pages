@@ -1,47 +1,114 @@
 <style>
+  .sidenav {
+    height: 100%;
+    /* Full-height: remove this if you want "auto" height */
+    width: 20%;
+    /* Set the width of the sidebar */
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    /* Stay on top */
+    top: 20%;
+    /* Stay at the top */
+    bottom: 20%;
+    left: 0;
+    background-color: white;
+    /* Black */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 0px;
+    border: #000000;
+  }
+
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+  }
+
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: blue;
+  }
+
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
     .sidenav {
-      height: 100%; /* Full-height: remove this if you want "auto" height */
-      width: 20%; /* Set the width of the sidebar */
-      position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-      z-index: 1; /* Stay on top */
-      top: 20%; /* Stay at the top */
-      bottom: 20%;
-      left: 0;
-      background-color: white; /* Black */
-      overflow-x: hidden; /* Disable horizontal scroll */
-      padding-top: 20px;
-      border: #000000;
+      padding-top: 15px;
     }
-    
-    /* The navigation menu links */
+
     .sidenav a {
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      font-size: 15px;
-      color: #818181;
-      display: block;
-     
+      font-size: 18px;
     }
-    
-    /* When you mouse over the navigation links, change their color */
-    .sidenav a:hover {
-      color: blue;
-    }
-    
-    
-    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-    @media screen and (max-height: 450px) {
-      .sidenav {padding-top: 15px;}
-      .sidenav a {font-size: 18px;}
-    }
-    </style>
-    <div class="sidenav">
-        {% for item in site.data.toc.toc %}
-        <h4>{{ item.title }}</h4>
-        <ul>
-           {% for entry in item.subfolderitems %}
-           <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
-           {% endfor %}
-        </ul>
-        {% endfor %}
-     </div>
+  }
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active,
+  .collapsible:hover {
+    background-color: #555;
+  }
+
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2212";
+  }
+
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+</style>
+<div class="sidenav">
+  {% for item in site.data.toc.toc %}
+  <button class="collapsible">{{ item.title }}</button>
+  <!--<h4>{{ item.title }}</h4>-->
+  <div class="content">
+    {% for entry in item.subfolderitems %}
+    <ul>
+      <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
+    </ul>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+</script>

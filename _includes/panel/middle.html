@@ -1,13 +1,37 @@
 <style>
-/* Style page content */
-.main {
-      margin-left: 20%; /* Same as the width of the sidebar */
-      padding: 0px 10px;
+    /* Style page content */
+    .main {
+        margin-left: 20%;
+        /* Same as the width of the sidebar */
+        padding: 0px 20px;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky+.content {
+        padding-top: 60px;
     }
 </style>
 <div class="main">
     <h2>{{ page.title}}</h2>
     <hr>
     {{ content }}
- </div>
- 
+</div>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
