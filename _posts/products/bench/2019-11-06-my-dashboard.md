@@ -93,6 +93,7 @@ d. Receive a notification when a new bench has been created, deleted or when a d
 e. The Bench Expiry will show you a notification whenever a Bench has expired or is about to expire. The Owners will receive this notification.
 
 g. You will see a notification whenever a user raises a Bench access request, when a user is added, removed and when Owner or Co-Owner have become inactive
+
 ![image.png](/gitlab-pages/assets/bench/14.png) 
 
 Expand the notification tab to review the details. 
